@@ -10,26 +10,26 @@
 class MockClient:
 #ConnectionListener, Hellow_Core_ContactListener {
 
-	def __init__(self):
-		self.logged = False
-		self.connected = False
-		self.group = None
-		self.contact = None
+    def __init__(self):
+        self.logged = False
+        self.connected = False
+        self.group = None
+        self.contact = None
 
-	def onLogged(self):
-		self.logged = True
+    def onLogged(self):
+        self.logged = True
 
-	def onConnected(self):
-		self.connected = True
+    def onConnected(self):
+        self.connected = True
 
-	def onAddContact(self, contact):
-		self.contact = contact;
+    def onAddContact(self, contact):
+        self.contact = contact;
 
-	def onRemoveContact(self, contact):
-		pass
+    def onRemoveContact(self, contact):
+        pass
 
-	def onAddGroup(self, group):
-		self.group = group;
+    def onAddGroup(self, group):
+        self.group = group;
 
-	def onRemoveGroup(self, group):
-		pass
+    def onRemoveGroup(self, group):
+        pass

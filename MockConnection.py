@@ -9,27 +9,27 @@
 
 class MockConnection:
 
-	def __init__(self):
-		self.sended = None
-		self.reveiced = None
-		self.host = None
-		self.port = None
-	
-	def connect(self, host, port):
-		self.host = host
-		self.port = port
-	
-	def disconnect(self):
-		pass
+    def __init__(self):
+        self.sended = None
+        self.reveiced = None
+        self.host = None
+        self.port = None
+    
+    def connect(self, host, port):
+        self.host = host
+        self.port = port
+    
+    def disconnect(self):
+        pass
 
-	def send(self, cmd):
-		self.sended = cmd
+    def send(self, cmd):
+        self.sended = cmd
 
-	def receive(self, cmd):
-		self.received = cmd
-	
-	def nextCommand(self):
-		return None
+    def receive(self, cmd):
+        self.received = cmd
+    
+    def nextCommand(self):
+        return None
 
-	def hasMoreCommands(self):
-		return False
+    def hasMoreCommands(self):
+        return False
