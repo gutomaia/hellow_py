@@ -32,12 +32,12 @@ class ProtocolTest(unittest.TestCase):
     def send(self, msg):
         self.assertEquals(msg, self.mockConnection.sended)
 
-    def testChallenger(self):
+    def test_challenger(self):
         chl = '29409134351025259292'
         digest = self.msn.challenger(chl)
         self.assertEquals('d0c1178c689350104350d99f8c36ed9c', digest)
 
-    def testSession(self):
+    def test_session(self):
         #Sends the MSN Client version
         self.send("VER 1 MSNP8 CVR0\r\n")
         
@@ -52,7 +52,7 @@ class ProtocolTest(unittest.TestCase):
         #Redirect
         self.receive("XFR 3 NS 207.46.106.118:1863 0 207.46.104.20:1863\r\n")
         self.send("VER 4 MSNP8 CVR0\r\n")
-        self.assertEquals("207.46.106.118",self.mockConnection.host, "Invalid host")
+        self.assertEquals("207.46.106.118", self.mockConnection.host, "Invalid host")
         self.assertEquals("1863", self.mockConnection.port, "Invalid port")
         
         self.receive("VER 4 MSNP8 CVR0\r\n")
@@ -92,14 +92,14 @@ class ProtocolTest(unittest.TestCase):
 
         self.receive("BPR MOB Y\r\n")
 
-		#Add Luke as a contact
+        #Add Luke as a contact
         self.receive("LST luke@rebels.org Luke 3 1\r\n")
         self.assertEquals(self.mockClient.contact['user'], 'luke@rebels.org')
         self.assertEquals(self.mockClient.contact['nick'], 'Luke')
         self.assertEquals(self.mockClient.contact['lists'], '3') #Luke dosen't have Vader in their list! Bastard!!
         #self.assertEquals(self.mockClient.contact['groups'], '1')
 
-		#self.send("CHG 9 NLN 0\r\n")
+        #self.send("CHG 9 NLN 0\r\n")
         self.receive("CHG 9 NLN 0\r\n")
 
         #//Initial Presence
@@ -107,28 +107,28 @@ class ProtocolTest(unittest.TestCase):
         self.receive("ILN 9 IDL luke@rebels.org Luke 268435492\r\n")
 
         #//Challenger
-        self.receive("CHL 0 29409134351025259292\r\n");
-        self.send("QRY 10 msmsgs@msnmsgr.com 32\r\nd0c1178c689350104350d99f8c36ed9c");
+        self.receive("CHL 0 29409134351025259292\r\n")
+        self.send("QRY 10 msmsgs@msnmsgr.com 32\r\nd0c1178c689350104350d99f8c36ed9c")
         
         #//Presence
-        #$this->receive("NLN NLN luke@rebels.org Luke%20JediMaster 268435492\r\n");//Available
-        #$this->receive("NLN BSY luke@rebels.org Luke%20JediMaster 268435492\r\n");//Busy
-        #$this->receive("NLN IDL luke@rebels.org Luke%20JediMaster 268435492\r\n");//Idle
-        #$this->receive("NLN BRB luke@rebels.org Luke%20JediMaster 268435492\r\n");//Be Right Back
-        #$this->receive("NLN AWY luke@rebels.org Luke%20JediMaster 268435492\r\n");//Away
-        #$this->receive("NLN PHN luke@rebels.org Luke%20JediMaster 268435492\r\n");//On the Phone
-        #$this->receive("NLN LUN luke@rebels.org Luke%20JediMaster 268435492\r\n");//Out to lunch
-        #$this->receive("FLN luke@rebels.org\r\n");
-        #$this->receive("FLN emperor@empire.com\r\n");
+        #$this->receive("NLN NLN luke@rebels.org Luke%20JediMaster 268435492\r\n") //Available
+        #$this->receive("NLN BSY luke@rebels.org Luke%20JediMaster 268435492\r\n") //Busy
+        #$this->receive("NLN IDL luke@rebels.org Luke%20JediMaster 268435492\r\n") //Idle
+        #$this->receive("NLN BRB luke@rebels.org Luke%20JediMaster 268435492\r\n") //Be Right Back
+        #$this->receive("NLN AWY luke@rebels.org Luke%20JediMaster 268435492\r\n") //Away
+        #$this->receive("NLN PHN luke@rebels.org Luke%20JediMaster 268435492\r\n") //On the Phone
+        #$this->receive("NLN LUN luke@rebels.org Luke%20JediMaster 268435492\r\n") //Out to lunch
+        #$this->receive("FLN luke@rebels.org\r\n")
+        #$this->receive("FLN emperor@empire.com\r\n")
 
         #// Call
-        #$this->receive("RNG 876505971 65.54.228.15:1863 CKI 4216622.2513084 emperor@empire.com Emperor");
-        #//$this->assertEquals("876505971", $this->mockCall->call);
-        #//$this->assertEquals("65.54.228.15", $this->mockCall->server);
-        #//$this->assertEquals(1863, $this->mockCall->port);
-        #//$this->assertEquals("4216622.2513084", $this->mockCall->cki);
-        #//$this->assertEquals("emperor@empire.com", $this->mockCall->username);
-        #//$this->assertEquals("Emperor", $this->mockCall->nick);
+        #$this->receive("RNG 876505971 65.54.228.15:1863 CKI 4216622.2513084 emperor@empire.com Emperor")
+        #//$this->assertEquals("876505971", $this->mockCall->call)
+        #//$this->assertEquals("65.54.228.15", $this->mockCall->server)
+        #//$this->assertEquals(1863, $this->mockCall->port)
+        #//$this->assertEquals("4216622.2513084", $this->mockCall->cki)
+        #//$this->assertEquals("emperor@empire.com", $this->mockCall->username)
+        #//$this->assertEquals("Emperor", $this->mockCall->nick)
 
-if __name__=="__main__":
+if __name__ == "__main__":
     unittest.main()
