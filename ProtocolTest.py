@@ -33,7 +33,7 @@ class ProtocolTest(unittest.TestCase):
         self.assertEquals(msg, self.mockConnection.sended)
 
     def testChallenger(self):
-	    chl = '29409134351025259292'
+        chl = '29409134351025259292'
         digest = self.msn.challenger(chl)
         self.assertEquals('d0c1178c689350104350d99f8c36ed9c', digest)
 
@@ -41,10 +41,10 @@ class ProtocolTest(unittest.TestCase):
         #Sends the MSN Client version
         self.send("VER 1 MSNP8 CVR0\r\n")
         
-		#Acknowledge
-		self.receive("VER 1 MSNP8 CVR0\r\n")
-		self.send("CVR 2 0x0409 win 4.10 i386 MSNMSGR 6.0.0602 MSMSGS dvader@empire.com\r\n")
-		
+        #Acknowledge
+        self.receive("VER 1 MSNP8 CVR0\r\n")
+        self.send("CVR 2 0x0409 win 4.10 i386 MSNMSGR 6.0.0602 MSMSGS dvader@empire.com\r\n")
+        
         #Client sends information
         self.receive("CVR 2 6.0.0602 1.0.000 http://download.microsoft.com/download/8/a/4/\r\n")
         self.send("USR 3 TWN I dvader@empire.com\r\n")
@@ -108,7 +108,7 @@ class ProtocolTest(unittest.TestCase):
 
         #//Challenger
         self.receive("CHL 0 29409134351025259292\r\n");
-		self.send("QRY 10 msmsgs@msnmsgr.com 32\r\nd0c1178c689350104350d99f8c36ed9c");
+        self.send("QRY 10 msmsgs@msnmsgr.com 32\r\nd0c1178c689350104350d99f8c36ed9c");
         
         #//Presence
         #$this->receive("NLN NLN luke@rebels.org Luke%20JediMaster 268435492\r\n");//Available
