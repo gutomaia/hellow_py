@@ -23,7 +23,7 @@ class Msnp:
 		self._connectionHandle = connectionHandle
 	
 	def addCommandListener(self, commandListener):
-		self._commandListener = command
+		self._commandListener = commandListener
 
 	def onCommandReceived(self, command):
 		if self._commandListener != None: self._commandListener.onCommandReceived(command)
