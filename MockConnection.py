@@ -25,7 +25,7 @@ class MockConnection:
 	def send(self, cmd):
 		self.sended = cmd
 
-	def receive(self,cmd):
+	def receive(self, cmd):
 		self.received = cmd
 	
 	def nextCommand(self):
