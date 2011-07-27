@@ -23,13 +23,13 @@ class MockClient:
         self.connected = True
 
     def onAddContact(self, contact):
-        self.contact = contact;
+        self.contact = contact
 
     def onRemoveContact(self, contact):
         pass
 
     def onAddGroup(self, group):
-        self.group = group;
+        self.group = group
 
     def onRemoveGroup(self, group):
         pass

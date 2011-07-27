@@ -19,7 +19,7 @@ class TweenerTest(unittest.TestCase):
     def tearDown(self):
         self._twn = None
 
-    def testExtractHttpResponseHeader(self):
+    def test_extract_http_response_header(self):
         self.assertTrue(True)
         header = 'HTTP/1.1 200 OK' + self.EL
         header += 'Date: Sun, 11 Jul 2010 18:46:58 GMT' + self.EL
@@ -76,7 +76,7 @@ class TweenerTest(unittest.TestCase):
                 'Authorization':'Passport1.4 OrgVerb=GET,OrgURL=http%3A%2F%2Fmessenger%2Emsn%2Ecom,sign-in=dvader%40empire.com,pwd=ih8jedis,ct=1278901179,rver=5.5.4182.0,wp=FS_40SEC_0_COMPACT,lc=1033,id=507,ru=http:%2F%2Fmessenger.msn.com,tw=0,kpp=1,kv=4,ver=2.1.6000.1,rn=1lgjBfIL,tpf=b0735e3a873dfb5e75054465196398e0',
                 'Host':'login.live.com'
         }
-        requestHeader = self._twn.buildHttpRequestHeader('login.live.com/login2.srf', requestParams);
+        requestHeader = self._twn.buildHttpRequestHeader('login.live.com/login2.srf', requestParams)
         #self.assertEquals(expected, requestHeader)
 
     def testEncode(self):

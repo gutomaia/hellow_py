@@ -16,7 +16,6 @@ class Tweener:
     def __init__(self):
         self.EL = "\r\n"
         self.passportProps = None
-    
 
     def extractHttpResponseHeader(self, httpResponse):
         props = {}
@@ -24,12 +23,11 @@ class Tweener:
         header = httpResponse[0:cutter]
         parameter_values = header.split(self.EL)
         for i in range(1, len(parameter_values)):
-                cutter = parameter_values[i].find(':')
-                key = parameter_values[i][0:cutter]
-                value = parameter_values[i][cutter+2:]
-                props[key] = value
+            cutter = parameter_values[i].find(':')
+            key = parameter_values[i][0:cutter]
+            value = parameter_values[i][cutter+2:]
+            props[key] = value
         return props
-
 
     def extractVarParams(self, params):
         props = {}
@@ -71,7 +69,6 @@ class Tweener:
 #        $passportURLS = $responseHeader['PassportURLs'];
 #        $this->passportProps = $this->extractVarParams($passportURLS);
 #    }
-        pass
 
     def buildHttpRequestHeader(self, url, params = None):
         requestHeader = ''
@@ -89,10 +86,10 @@ class Tweener:
         paramVars = '';
         for key, value in params.iteritems():
             if key == 'lc':
-                paramVars+=value
+                paramVars +=value
             else:
-                paramVars+=key+'='+value
-                paramVars+=','
+                paramVars +=key+'='+value
+                paramVars +=','
         return paramVars
 
 #    function buildParamVars($params){
@@ -115,8 +112,6 @@ class Tweener:
 #        return str_replace("@", "%40", $var);
 #    }
 
-
-    
     def request(self, url, port, httpRequest):
         host = url[:url.find('/')]
         request = url[url.find('/'):]

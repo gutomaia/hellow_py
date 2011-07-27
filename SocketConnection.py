@@ -27,7 +27,7 @@ class SocketConnection:
         print host, port
         if self.getSocket() != None:
             self._socket.close()
-            self._socket = None;
+            self._socket = None
         self._socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         result = self._socket.connect((host,port))
         #if ($this->getSocket()) {

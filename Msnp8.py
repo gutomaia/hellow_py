@@ -10,7 +10,9 @@
 import Msnp
 import Notification
 
+
 class Msnp8(Notification.Notification):
+
     def __init__(self):
         Notification.Notification.__init__(self)
         #super(Msnp8,self).connect()
@@ -81,7 +83,7 @@ class Msnp8(Notification.Notification):
         elif cmd == "CHG":
             self.onConnected()
         elif cmd == "CHL":
-            params = command.strip().split(' ');
+            params = command.strip().split(' ')
             self.send(self.qry(params[2]))
         #   elif cmd == "QRY":
         elif cmd == "207":  

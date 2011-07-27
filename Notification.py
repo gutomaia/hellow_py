@@ -47,13 +47,13 @@ class Notification(Msnp.Msnp):
     def logout(self):
         self.send(self.out())
         self.disconnect()
-    
+
 #    public final function addConnectionListener($connectionListener){
 #        $this->_connectionListener = $connectionListener;
 
 #    public final function 
     def addContactListener(self, contactListener):
-        self._contactListener = contactListener;
+        self._contactListener = contactListener
 #        $this->_contactListener = $contactListener;
 
 #    public final function addPresenceListener($presenceListener){
